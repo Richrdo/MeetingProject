@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>召开新会议</title>
+	
+	<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body style="padding:20px">
+	
+	
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="themes" class="col-sm-1 control-label">会议主题</label>
+    	<div class="col-sm-7">
+      		<input type="text" class="form-control" id="themes" value="全球气候影响因素大会">
+    	</div>
+  	</div>
+  	<div class="form-group">
+    	<label for="startTime" class="col-sm-1 control-label">起始时间</label>
+ 	  	<div class="col-sm-3">
+			<input class="form-control" id="startTime" value="2019-10-21 12：00">
+	    </div>
+		<label for="endTime" class="col-sm-1 control-label">结束时间</label>
+ 	  	<div class="col-sm-3" >
+			<input class="form-control" id="endTime" value="2019-10-22 12：00">
+	    </div>
+  	</div>
+	<div class="form-group">
+		<label for="address" class="col-sm-1 control-label">会议地点</label>
+		<div class="col-sm-7">
+			<input type="text" class="form-control" id="address" value="例：南昌大学前湖校区北院信工楼三号报告厅">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="hotel" class="col-sm-1 control-label">宾馆地点</label>
+		<div class="col-sm-7">
+			<input type="text" class="form-control" id="hotel" value="例：前湖迎宾馆">
+		</div>
+	</div>
+
+</form>
+	
+<!--	与会人员需填项目-->
+	<form class="form-horizontal" id="whichToFill">
+		<div class="form-group">
+			<label class="control-label col-sm-1" >必填项目</label>
+			<div class="col-lg-1">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="单位">单位
+				</label>
+			</div>
+			<div class="col-lg-1">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="身份证">身份证
+				</label>
+			</div>
+			<div class="col-lg-1">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="手机号">手机号
+				</label>
+			</div>
+			<div class="col-lg-1">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="性别">性别
+				</label>
+			</div>
+			<div class="col-lg-1">
+				<label class="checkbox-inline">
+					<input type="checkbox" value="住宿">住宿
+				</label>
+			</div>
+
+			<div class="col-lg-2">
+				<input type="text" id="remark" class="form-control" placeholder="其它">
+			</div>
+		</div>
+	</form>
+	
+<!--	与会人员列表-->
+	<form class="form-horizontal" id="ppsList">
+		<div class="form-group">
+			<label  class="col-sm-1 control-label">与会人员</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" placeholder="姓名" name="attName" value="Ceaser">
+			</div>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" placeholder="邮箱" name="attEmail" value="ewfew@qq.com">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-1 col-sm-3">
+				<input type="text" class="form-control"  name="attName" value="Borgian">
+			</div>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" name="attEmail" value="aaaa@qq.com">
+			</div>
+		</div>
+	</form>
+<!--	增加上述列表-->
+	<div class="row">
+		<div class="col-sm-offset-1 col-sm-1">
+			<button type="button" class="btn btn-default" aria-label="Left Align" >
+  				<span class="glyphicon glyphicon-plus" aria-hidden="true" id="addMan">添加与会人员</span>
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<hr class="col-sm-8">
+	</div>
+	<div class="row">
+		<div class="col-sm-offset-1 col-sm-1">
+			<button type="button" class="btn btn-default " aria-label="Left Align" >
+  				<span class="glyphicon glyphicon-ok-sign " aria-hidden="true" id="submitNewMeeting">创建会议</span>
+			</button>
+		</div>
+	</div>
+
+
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+	<script src="js/commons.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/bootstrap-theme.css" rel="stylesheet"/>
+	<link href="css/bootstrap.css">
+</body>
+</html>
