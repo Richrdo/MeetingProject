@@ -24,17 +24,6 @@ public class newMeetingController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response){
-        response.setContentType("application/json");
-        /** 设置响应头允许ajax跨域访问 **/
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        /* 星号表示所有的异域请求都可以接受， */
-        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        try {
-            PrintWriter out=response.getWriter();
-            out.println("ok");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         JsonService jsonService =new JsonService();
         try {

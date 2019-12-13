@@ -43,7 +43,7 @@
                 <td><%=formBean.getThemes()%></td>
                 <td><%=formBean.getStartTime()%></td>
                 <td>
-                    <a  rel="tooltip" data-placement="bottom" class="btn btn-info" id="btn_checkMeetingMessage" >查看信息
+                    <a  rel="tooltip" data-placement="bottom" class="btn btn-info" name="btn_checkMeetingMessage" >查看信息
                     </a>
                 </td>
             </tr>

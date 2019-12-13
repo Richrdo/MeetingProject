@@ -73,7 +73,7 @@ public class FormService {
     public static void insertFillMessage(String fillString,long id,String email){
         Connection connection=DBUtil.getConnection();
         ResultSet rst;
-        String sql="update participant set p_fillMessge=? where p_email=? and p_meetingID=?)";
+        String sql="update participant set p_fillMessage=? where p_email=? and p_meetingID=?";
         try {
             PreparedStatement pst=connection.prepareStatement(sql);
             pst.setString(1,fillString);
@@ -134,8 +134,11 @@ public class FormService {
                 formBean.setHotelAddress(resultSet.getString("f_hotelAddress"));
                 formBean.setMeetingAddress(resultSet.getString("f_meetingAddress"));
 
-                formBean.setParticipants(getParticipantsByMeetingID(formBean.getFormID(),formBean.getFillList()));
-
+                if (null==formBean.getFillList()){
+                    System.out.println("没有须填信息");
+                }else{
+                    formBean.setParticipants(getParticipantsByMeetingID(formBean.getFormID(),formBean.getFillList()));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -163,16 +166,19 @@ public class FormService {
                 participant.setName(resultSet.getString("p_name"));
                 participant.setUID(resultSet.getInt("p_uid"));
 
-
-                String[] fillMapList=fillMap.split("#");
-                if (null!=resultSet.getString("p_fillMessage")){
+                String[] fillMapList=null;
+                if (fillMap.isEmpty()){
+                    System.out.println("没有需填信息");
+                }else if (null!=resultSet.getString("p_fillMessage")){
+                    fillMapList=fillMap.split("#");
                     String[] fillMessages=resultSet.getString("p_fillMessage").split("#");
                     for (int i=0;i<fillMapList.length;i++){
                         map.put(fillMapList[i],fillMessages[i]);
                     }
                 }else{
+                    fillMapList=fillMap.split("#");
                     for (int i=0;i<fillMapList.length;i++){
-                        map.put(fillMapList[i]," ");
+                        map.put(fillMapList[i],"未填写");
                     }
                 }
 

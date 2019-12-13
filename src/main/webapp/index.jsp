@@ -46,7 +46,7 @@
 
 <div class="modal fade" id="myModal">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content" style="width: fit-content;overflow: auto">
 			<div class="modal-header"></div>
 			<div class="modal-body"></div>
 			<div class="modal-footer"></div>
