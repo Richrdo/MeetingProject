@@ -112,17 +112,39 @@
                         <button type="button" class="btn btn-default left" id="btn_notify_participants">邮箱提醒</button>
                     </div>
                     <div class="col-md-6 column">
-                        <button type="button" class="btn btn-default" id="btn_print_form">打印表单</button>
+                        <button type="button" class="btn btn-default" id="btn_print_form" onclick="printForm(<%=formBean.getFormID()%>)">打印表单</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<%--        一个隐藏的span，用于存放formbean数据--%>
+        <span id="formBeanHiddenSpan" hidden><%=JSONObject.toJSONString(formBean)%></span>
     </div>
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
     <link href="css/style.css">
+
+<script>
+    function printForm(id) {
+        var xhr=new XMLHttpRequest();
+        xhr.open("get","downloadForm?id="+id,true);
+        xhr.responseType="blob";
+
+        xhr.onload=function (ev) {
+            if (this.status==200){
+                var blob=this.response;
+                var URL=window.URL || window.webkitURL;
+
+                var link=document.createElement('a');
+                link.href=URL.createObjectURL(blob);
+                link.click();
+            }
+        }
+        xhr.send();
+    }
+</script>
 </body>
 </html>

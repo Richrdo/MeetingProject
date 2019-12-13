@@ -24,7 +24,7 @@ public class FormBean {
 
     @Override
     public String toString() {
-        return "FormBean{" +
+        return "{" +
                 "authorName='" + authorName + '\'' +
                 ", formID=" + formID +
                 ", themes='" + themes + '\'' +
