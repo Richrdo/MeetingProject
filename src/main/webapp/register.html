@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+
+<div class="content" >
+    <div class="login-pane2">
+        <div class="login-head">
+            <span class="name"> 南大会议系统</span>
+            <span class="title">会员注册</span>
+        </div>
+        <div class="login-box">
+            <form action="userRegister" onsubmit="return checkValid()" method="post">
+                <input class="text" type="text" name="userEmail" id="userEmail" placeholder="邮箱">
+                <hr class="hr15">
+                <input class="text" type="password" name="userPassword" id="userPassword" placeholder="密码">
+                <hr class="hr15">
+                <input class="text" type="password" name="rePassword" id="rePassword" placeholder="确认密码">
+                <hr class="hr15">
+                <input class="text" type="text" name="userName" id="userName" placeholder="用户名">
+                <hr class="hr15">
+				<input type="submit" id="loginBtnPost" name="loginBtnPost" class="submit" value="注册">
+            </form>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="css/main.css">
+	<script>
+		function checkValid(){
+			var email=document.getElementById("userEmail").value;
+			var password=document.getElementById("userPassword").value;
+			var rePassword=document.getElementById("rePassword").value;
+			var name=document.getElementById("userName").value;
+			
+			if(null==email||null==password||null==rePassword||null==name){
+				alert("信息不完整");
+				return false;
+			}else if(password!=rePassword){
+				alert("两次密码不一致");
+				return false;
+			}else if(!isVaildAddress(email)){
+				alert("邮箱格式不正确");
+				return false;
+			}else{
+				return true;
+			}
+		}
+		function isVaildAddress(address){
+			var pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+			if(pattern.test(address)){
+            	return true;
+        	}else{
+				alert("非法邮箱");
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

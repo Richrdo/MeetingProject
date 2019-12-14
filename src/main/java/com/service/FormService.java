@@ -31,6 +31,7 @@ public class FormService {
         }
     }
 
+//    随机生成不重复的12位会议ID
     public static Long randomNewFormID(){
         Random random=new Random();
         long id=Math.abs(random.nextLong())%(1000000000000L);
@@ -46,6 +47,7 @@ public class FormService {
         return id;
     }
 
+//    获取自己创建的ID
     public static List<FormBean> getOwnMeetingByEmail(String email){
         List<FormBean> formBeanList=new ArrayList<>();
         FormBean formBean;
@@ -70,6 +72,7 @@ public class FormService {
         return formBeanList;
     }
 
+//    插入需填写的必填信息
     public static void insertFillMessage(String fillString,long id,String email){
         Connection connection=DBUtil.getConnection();
         ResultSet rst;
@@ -90,6 +93,7 @@ public class FormService {
 
     }
 
+//    获取加入的会议
     public static List<FormBean> getJoinMeetingByEmail(String email){
         List<FormBean> formBeanList=new ArrayList<>();
         FormBean formBean;
@@ -114,6 +118,7 @@ public class FormService {
         return formBeanList;
     }
 
+//    获取会议详情
     public static FormBean getMeetingDetail(Long meetingID){
 
         FormBean formBean=new FormBean();
@@ -144,9 +149,12 @@ public class FormService {
             e.printStackTrace();
         }
 
+//        加入到MeetingData方便取用
+        MeetingData.addToFormMap(formBean);
         return formBean;
     }
 
+//    获取参会人员信息
     public static List<Participant> getParticipantsByMeetingID(Long meetingID,String fillMap){
         List<Participant> participants=new ArrayList<>();
         Participant participant;

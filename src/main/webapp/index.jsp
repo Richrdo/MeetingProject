@@ -9,7 +9,7 @@
 <body>
 <%
     if (null==session.getAttribute("user")){
-         response.sendRedirect("/login.html");
+         response.sendRedirect("login.html");
      }
  %>
 	<nav class="navbar navbar-default">
@@ -46,7 +46,7 @@
 
 <div class="modal fade" id="myModal">
 	<div class="modal-dialog">
-		<div class="modal-content" style="width: fit-content;overflow: auto">
+		<div class="modal-content" style="width: fit-content;overflow: auto;min-width: 500px;">
 			<div class="modal-header"></div>
 			<div class="modal-body"></div>
 			<div class="modal-footer"></div>

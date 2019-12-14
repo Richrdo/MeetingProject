@@ -17,7 +17,7 @@
     List<FormBean> formBeans= JSONObject.parseArray((String)session.getAttribute("joinMeeting"),FormBean.class);
     if (formBeans.isEmpty()){
 %>
-<h2>你还没有创建的会议</h2>
+<h2>你还没有加入的会议</h2>
 <%
 }else{
 %>
@@ -39,7 +39,7 @@
             <td><%=formBean.getStartTime()%></td>
             <td>
                 <a  rel="tooltip" data-placement="bottom" class="btn btn-info" name="btn_fillMessage" >
-                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>未填写
+                    填写信息
                 </a>
 <%--                href="fillMessage.jsp?id=<%=formBean.getFormID()%>"--%>
             </td>

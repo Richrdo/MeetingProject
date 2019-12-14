@@ -101,6 +101,7 @@ $(document).ready(function(){
             },
             success:function () {
                 alert("数据填写成功");
+                $("#myModal").modal("hide");
             }
         })
     });
@@ -132,7 +133,6 @@ $(document).ready(function(){
     });
 
 
-
     //提交新建的项目
     $("#submitNewMeeting").unbind('click').click(function () {
         var themes=$("#themes").val();
@@ -140,7 +140,7 @@ $(document).ready(function(){
         var endTime=$("#endTime").val();
         var meetingAddress=$("#meetingAddress").val();
         var hotelAddress=$("#hotelAddress").val();
-        var fillList;
+        var fillList="";
         $(":checked").each(function () {
             fillList=fillList+$(this).val()+"#";
         });
@@ -155,7 +155,7 @@ $(document).ready(function(){
             $("#ppsList").find(".form-group").each(function () {
                 var name=$(this).find("input[name='attName']").val();
                 var email=$(this).find("input[name='attEmail']").val();
-                if (null!=name&&null!=email){
+                if (name!=""&&email!=""){
                     var emailPattern=/^\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}$/;
                     if (emailPattern.test(email)){
                         var data={
@@ -167,7 +167,7 @@ $(document).ready(function(){
                         alert("参会人员email格式不对");
                         return;
                     }
-                }else if (null==name||null==email){
+                }else if (name==""||email==""){
                     alert("参会人员信息不完整");
                     return;
                 }
@@ -200,6 +200,7 @@ $(document).ready(function(){
             }
         })
     });
+
 });
 
 

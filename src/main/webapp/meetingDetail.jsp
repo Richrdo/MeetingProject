@@ -95,7 +95,7 @@
                                         Map<String,String> fillMessageMap=participant.getFillMap();
                                         for (int j=0;j<fillMap.length;j++){
                         %>
-                        <td><%=fillMessageMap.get(fillMap[i])%></td>
+                        <td><%=fillMessageMap.get(fillMap[j])%></td>
                         <%
                                         }
                                     }
@@ -109,7 +109,7 @@
                 </table>
                 <div class="row clearfix">
                     <div class="col-md-6 column">
-                        <button type="button" class="btn btn-default left" id="btn_notify_participants">邮箱提醒</button>
+                        <button type="button" class="btn btn-default left" id="btn_notify_participants" onclick="sendEmailToNotify(<%=formBean.getFormID()%>)">邮箱提醒</button>
                     </div>
                     <div class="col-md-6 column">
                         <button type="button" class="btn btn-default" id="btn_print_form" onclick="printForm(<%=formBean.getFormID()%>)">打印表单</button>
@@ -144,6 +144,24 @@
             }
         }
         xhr.send();
+    }
+
+    function sendEmailToNotify(id){
+        $.ajax({
+            url:"sendEmailToParticipants",
+            type:'post',
+            data:{
+                "id":id
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            },
+            success:function() {
+                alert("已发送邮件提醒参会人员填写信息");
+            }
+        });
     }
 </script>
 </body>

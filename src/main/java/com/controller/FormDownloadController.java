@@ -25,8 +25,6 @@ public class FormDownloadController extends HttpServlet {
         try {
             response.reset();
             response.setHeader("Content-Disposition", "attachment; filename="+fileName);
-//            response.setContentLength();
-//            response.setCharacterEncoding("ISO8859-1");
             response.addHeader("Pragma","No-cache");
             response.addHeader("Cache-Control","No-cache");
 
