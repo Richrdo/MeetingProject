@@ -10,9 +10,9 @@ public class DBUtil {
     private static ResultSet resultSet;
 
     public static Connection getConnection(){
-        String name="ceaser";
-        String pw="Q201023aaa";
-        String url="jdbc:mysql://47.106.177.200:3306/conference?serverTimezone=Asia/Shanghai&characterEncoding=utf8";
+        String name="name";
+        String pw="password";
+        String url="jdbc:mysql://localhost:3306/conference?serverTimezone=Asia/Shanghai&characterEncoding=utf8";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection= DriverManager.getConnection(url,name,pw);
